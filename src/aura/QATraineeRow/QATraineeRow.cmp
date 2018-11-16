@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="QATraineeRowController">
+    <ltng:require styles="/resource/fontAwesome/font-awesome-4.7.0/css/font-awesome.css"/>
+    <aura:registerEvent name="updateQCOverallGrades" type="c:updateQCAverageEvent"/>
+    
+    <!-- Attribute List and handler for initialization function -->
+    <aura:attribute name="trainingAssignment" type="Training_Assignment__c"/>
+    <aura:attribute name="trainingAssignmentID" type="String"/>
+    <aura:attribute name="WeekNumber" type="Integer"/>
+    
+    <aura:attribute name="QCStatus" type="String" default="Undefined"/>
+    <aura:attribute name="NoteContent" type="String"/>
+    
+    <aura:attribute name="icon" type="String" default="fa fa-question-circle fa-2x"/>
+    <aura:attribute name="iconLabel" type="String" default="Click to update your feedback."/>
+   <!-- <aura:handler name="init" value="{!this}" action="{!c.getComponentInfo}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getTrainee}"/> -->
+    <aura:handler name="init" value="{!this}" action="{!c.getEverything}"/>
+    
+    <hr/>
+   <!-- <p>week = {!v.WeekNumber}, assignmentID = {!v.trainingAssignmentID}, assignment= {!v.trainingAssignment} </p> -->
+    
+    <div id="d" class="slds-grid slds-wrap">
+        <!-- Trainee Name display -->
+    	<div class="slds-size_2-of-12">
+    		<p style="padding-top:25px;padding-left:30px">{!v.trainingAssignment.Contact__r.LastName}, {!v.trainingAssignment.Contact__r.FirstName}</p>
+    	</div>
+        <!-- Placeholder for flag component -->
+        <div class="slds-size-1-of-12" style="padding-top:20px;padding-left:20px;padding-right:20px">
+            <lightning:icon></lightning:icon>
+        </div>
+        <!-- QC Assessment Icon -->
+        <div class="slds-size_1-of-12" style="padding-top:20px;padding-left:10px">
+            <button id="b" onclick="{!c.handleClick}">
+            	<i class="{!v.icon}" title="{!v.iconLabel}"></i>
+            </button>
+        </div>
+        <!-- Notes on trainee section -->
+    	<div class="slds-size_8-of-12" style="padding:0px">
+        	<lightning:textArea value="{!v.NoteContent}" onblur="{!c.handleBlurOnNote}" placeholder="{!'Notes on ' + v.trainingAssignment.Contact__r.LastName + ', ' + v.trainingAssignment.Contact__r.FirstName}"/>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller='QABatchTableController'>
+    <ltng:require styles="/resource/fontAwesome/font-awesome-4.7.0/css/font-awesome.css"/>
+    
+   <!-- The moretabs attribute will contain all of the extra tabs created, for now.
+		There will always be at least 1 tab, so everything from the 2nd tab and on, up until
+		the add more button ( + ) are contained in there. 	
+        -->
+    <aura:attribute name="moretabs" type="Aura.Component[]"/>
+   <!-- The tabset contains all of the tabs. On click, it changes the respective tab to be 'up front'. 
+		These tabs can be configured to inject the content via lazy-load, when a given tab is selected.
+		For now, the first tab (Week 1) is hard coded, all the extra tabs are held in {!v.moretabs},
+		and at the end we have the addTab tab. 			
+        -->
+    <aura:attribute name='currentBatch' type='Training__c' />
+    <aura:attribute name='currentBatchID' type='String' default="a0Df4000006UtliEAC"/>
+    <aura:attribute name="tabId" type="String" default="Week1"/>
+    <aura:handler name="change" event="c:updateBatchIDEvent" action="{!c.handleChange}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+	<!--Batch id is {!v.currentBatchID} -->
+    <lightning:tabset aura:id = "tabs">
+        <lightning:tab class="slds-m-left_large, weekly-tab" onblur='{!c.testFocus}' onactive="{! c.handleActive }" label="Week 1" id="Week1"/>
+        {!v.moretabs}
+        <lightning:tab class="slds-m-left_large,slds-p-left_x-large,slds-p-right_x-large, weekly-tab" onactive="{! c.handleAddTab }" label="+" id="addTab" />
+    </lightning:tabset>
+        
+</aura:component>

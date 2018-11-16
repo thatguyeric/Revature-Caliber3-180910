@@ -1,0 +1,31 @@
+.THIS .fa-smile, .THIS .fa-meh-o, .THIS .fa-frown-o, .THIS .fa-star {
+    color : #B9B9BA;
+}
+
+hr.THIS{
+    margin: 1rem 0px;
+}
+/*Colors for the Icons*/
+.THIS .fa-smile-o { color: #18ad18 !important; }
+.THIS .fa-meh-o{ color: #f9e900 !important; }
+.THIS .fa-frown-o { color: #ea2825!important; }
+.THIS .fa-star { color: #393fef !important; }
+.THIS .fa-question-circle { color: #F26925;}
+
+.THIS .fa-smile-o:hover { color: #81f575; }
+.THIS .fa-meh-o:hover { color: #fdff9e; } 
+.THIS .fa-frown-o:hover { color: #ff7575; }
+.THIS .fa-star:hover { color: #7972ff; }
+
+/*Removes button background,border,outline*/
+.THIS#d #b {
+    background: none;
+    border: none;
+}
+
+.THIS#d #b:focus {
+    outline: none;
+    background: none;
+    border: none;
+    
+}

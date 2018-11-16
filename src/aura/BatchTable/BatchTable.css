@@ -1,0 +1,29 @@
+.THIS .table-hr {
+    height:1.5px;
+    background:#e9eaec;
+}
+
+.THIS .note-text-area  {
+    width:100%;
+}
+
+.THIS textarea {
+    padding:4px;
+}
+.THIS .assessment-title{
+    cursor: pointer;
+    text-align: center;
+    white-space: normal; 
+}
+
+.THIS .Update{
+  background-color: #F26925; 
+  color: white;
+  font-family: 'Futura-Std-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.THIS .Delete{
+    color: white;
+    float: left;
+    font-family: 'Futura-Std-Heavy',"Helvetica Neue",Helvetica,Arial,sans-serif;
+}

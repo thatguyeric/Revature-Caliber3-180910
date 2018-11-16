@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <ltng:require
+                  styles="{!$Resource.bootstrapCSS}"
+                  scripts="{!join(',', $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <ltng:require styles="/resource/fontAwesome/font-awesome-4.7.0/css/font-awesome.css"/>
+    <aura:attribute name="hidden" type="Boolean" default="display:flex"/>
+    <aura:attribute name="icon" Type="String" default="color:#F26925"/>
+    <aura:attribute name="color" Type="String"/>
+    
+    <div class="inline-block-class save-button" style="{!v.hidden}" >
+        <div onclick="{!c.doBurrito}" style="{!v.hidden}">
+            <i class="fa fa-floppy-o fa-2x"><span style="font-size:14px;">  Save</span></i>
+        </div>
+    </div>
+    <div class="btn-icons">
+        <i class="{!v.icon}" style="{!v.color + ' display: inline-block;'}"></i>
+    </div>
+</aura:component>

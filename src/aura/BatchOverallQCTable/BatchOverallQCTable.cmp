@@ -1,0 +1,86 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="ReportsController">
+    <ltng:require
+                  styles="{!join(',',
+                          $Resource.ReportPanelCSS,
+                          $Resource.fontAwesome + '/font-awesome-4.7.0/css/font-awesome.css',
+                          $Resource.bootstrapCSS)}"
+                  scripts="{!join(',',
+                           $Resource.jQuery, 
+                           $Resource.bootstrapJS)}"/>
+    
+    <aura:attribute name="weekNums" type="String[]" />
+    <aura:attribute name="batch" type="List" />
+    <aura:attribute name="trainees" type="List" />
+    <aura:attribute name="batchName" type="String" />
+    <aura:handler event="c:ReportFilterChange" action="{!c.doInit}"/>
+    
+    <div class="card report-100">
+        <div class="card-header">
+            <span>Batch QC Report</span>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th scope="col" >
+                            Trainee
+                        </th>
+                        <aura:iteration items="{!v.weekNums}" var="week">
+                            <th style="text-align:center;" scope="col">
+                                {!week}
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.trainees}" var="trainee">
+                        <tr>
+                            <td scope="row">
+                                {!trainee.name}
+                            </td>
+                            <!-- trainee grades -->
+                            <c:BatchOverallQCTableRow trainee="{!trainee}"/>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+                <tfoot class="qc-table-footer">
+                    <th>
+                        Overall
+                    </th>
+                    <aura:iteration items="{!v.batch}" var="batch">
+                        
+                        <th style="text-align:center">
+                            <a data-toggle="modal" data-target="{!'#' + globalId + batch.index + batch.note + '-note'}">
+                                <c:QCStatusIcon QCStatus="{!batch.grade}" isChangable="false"/>
+                            </a>
+                        </th>
+                        
+                        <!-- modal -->
+                        <div class="modal fade" id="{!globalId + batch.index + batch.note + '-note'}" tabindex="-1" role="dialog" aria-labelledby="globalId + modalTitle" aria-hidden="true" data-backdrop="false">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        
+                                        <h5 class="modal-title" id="globalId + modalTitle">Batch Overall Notes - Week {!batch.index}</h5>
+                                        
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        
+                                    </div>
+                                    <div class="modal-body">
+                                        <aura:if isTrue="{!empty(batch.note)}">
+                                            <div>No available notes.</div>
+                                        </aura:if>
+                                        {!batch.note}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </aura:iteration>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</aura:component>

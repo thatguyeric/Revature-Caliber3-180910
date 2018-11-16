@@ -1,0 +1,24 @@
+.THIS .batchOverallButtonContainer{
+   width: 100%;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.THIS .faceButton{
+    width : 33%;
+    outline: none;
+    background:none;
+    border:none;
+}
+
+.THIS .smilePicked { color: #18ad18 !important; }
+.THIS .neutralPicked { color: #f9e900 !important; }
+.THIS .sadPicked { color: #ea2825 !important; }
+
+.THIS .fa-smile-o { color: #B9B9BA; }
+.THIS .fa-meh-o { color: #B9B9BA; } 
+.THIS .fa-frown-o { color: #B9B9BA; }
+
+.THIS .fa-smile-o:hover { color: #81f575; }
+.THIS .fa-meh-o:hover { color: #fdff9e; } 
+.THIS .fa-frown-o:hover { color: #ff7575; }

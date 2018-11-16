@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="QACategoriesCoveredController">
+    <!-- version 2!! -->
+    <aura:attribute name="TrainingID" type="String"/>
+    <aura:attribute name="WeekNumber" type="Integer"/>    
+    <aura:attribute name="categories" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>	
+    
+   <p>Categories covered this week: {!v.categories}</p> 
+   <!--     <p>Categories covered this week: turn this back on later </p> -->
+</aura:component>

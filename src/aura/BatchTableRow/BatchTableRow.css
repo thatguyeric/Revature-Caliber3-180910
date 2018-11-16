@@ -1,0 +1,15 @@
+.THIS .note-text-area  {
+    width:100%;
+}
+
+.THIS .note-cell {
+    width:100%;
+}
+
+.THIS .align-top {
+    vertical-align: top;
+}
+
+.THIS .slds-textarea {
+    vertical-align: top;
+}

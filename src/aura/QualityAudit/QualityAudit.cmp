@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <c.CaliberHeaderBar/>
+    <ltng:require styles="{!join(',', $Resource.bootstrapCSS, $Resource.hidePageHeader, $Resource.HideTabHeader)}" />
+    <br/>
+    <div class="container ">
+        <!-- <c.BatchNavBar/> -->
+        <c.QualityAuditContainer/>
+    </div>
+</aura:component>

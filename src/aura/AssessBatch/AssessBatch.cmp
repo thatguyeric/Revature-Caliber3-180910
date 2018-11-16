@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <ltng:require
+                  styles="{!join(',', $Resource.bootstrapCSS, $Resource.hidePageHeader, $Resource.HideTabHeader)}"
+                  scripts="{!join(',', $Resource.jQuery, $Resource.bootstrapJS)}"/>	
+    
+    <c:CaliberHeaderBar />
+    <div class="container">
+        <c:QAMenuSelect />
+        <div class="row" style="padding-top:10px; border:0px solid white;">
+            <div class="col" style="float:right;">
+                <c:SaveButton />
+            </div>
+        </div>
+        <br/>
+    </div>
+    <c:RevatureFooter />
+</aura:component>

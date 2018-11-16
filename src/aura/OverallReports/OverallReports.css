@@ -1,0 +1,12 @@
+.THIS {
+	background-color:white;
+}
+
+.THIS .header-row {
+    float:left; 
+    width:100%; 
+    border-bottom: #ddd solid 1px; 
+    height:fit-content; 
+    margin-bottom: 20px;
+	padding-right: 15px;
+}

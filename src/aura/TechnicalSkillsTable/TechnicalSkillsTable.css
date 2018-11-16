@@ -1,0 +1,13 @@
+.THIS .floatRight{
+    float:Right;
+}
+
+.THIS .floatLeft{
+    float:Left;
+}
+
+.THIS .list-group-item{
+    
+    border-left: none;
+    border-right: none;
+}

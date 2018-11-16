@@ -1,0 +1,25 @@
+.THIS {
+    color: #F26925;
+    float: right;
+    margin-right:13px;
+}
+
+.THIS.save-button {
+    cursor: pointer;
+    width: 74px;
+    height: 43px;
+    border: 1px solid #F26925;
+    border-radius: 5px;
+    box-shadow: 2px 2px grey;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.THIS.btn-icons {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 28px;
+}

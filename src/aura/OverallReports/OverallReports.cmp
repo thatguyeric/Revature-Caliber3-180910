@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <c:CaliberHeaderBar />
+    <ltng:require
+                  styles="{!join(',',$Resource.ReportPanelCSS, $Resource.bootstrapCSS, $Resource.HideTabHeader)}"
+                  scripts="{!join(',', $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <div class="container" style="width: 100%">
+        <div class="row header-row">
+            <c:reportsPageHeader/>  
+        </div>
+        <c:CumulativeScoresBarChart/>
+        <c:BatchOverallQCTable/>
+        <c:ReportTechSkillsRadar/>
+        <c:WeeklyProgressLineChart/>
+    </div>
+</aura:component>

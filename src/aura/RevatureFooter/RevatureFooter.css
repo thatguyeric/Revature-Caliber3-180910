@@ -1,0 +1,25 @@
+.THIS {
+    width:100%;
+}
+
+.THIS .revature-logo{
+    float:left;
+	height:65px;
+    margin-top: 15.75px;
+    padding-bottom: 10.5px;
+    vertical-align: middle;
+    width: 175px;
+}
+.THIS .contact-info{
+    float:right;
+    color: #B9B9BA;
+    font-size: 10.5px;
+}
+.THIS a{
+    color: #B9B9BA;
+}
+.THIS .icon{
+    margin-right:2px;
+    height: 10.5px;
+    width: 12px;
+}

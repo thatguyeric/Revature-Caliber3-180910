@@ -1,0 +1,41 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <ltng:require
+                  styles="{!join(',',$Resource.ReportPanelCSS, $Resource.bootstrapCSS, $Resource.HideTabHeader)}"
+                  scripts="{!join(',', $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <!-- this is the header bar. It should contain the following:
+  - Revature Logo/home page link
+  - Home button
+  - Manage Batch button
+  - Assess Batch button
+  - Quality Audit button
+  - Panel
+  - Reports
+  - Settings	
+   -->
+    
+    <!-- the actual logo is added as a background image in css -->
+    <!--<lightning:button variant="base" label="Base" class="slds-button logobtn" onclick="{!c.handleClickHomeLogo }" > 
+        <div id="logoImage" />
+    </lightning:button>-->
+    
+    <!-- the rest of the buttons are using float: right, the first one to be read is the one that goes to right-hand edge 
+      of the container, and the ones read after it get placed to the left of the previous button, so they have to the 
+   'added' in reverse order to match the original sequence														-->        
+    <div class="row" style="float:right;">
+        <lightning:button class=" slds-p-around_medium" variant="base" label="Home" onclick="{! c.handleClick }"/>  
+        <lightning:button class=" slds-p-around_medium" variant="base" label="Assess Batch" onclick="{! c.toAssessBatch }"/>
+        <lightning:button class="slds-p-around_medium" variant="base" label="Quality Audit" onclick="{! c.toQualityAudit }"/>
+        <lightning:button class="slds-p-around_medium" variant="base" label="Panel" onclick="{! c.handleClick }"/>
+        <lightning:button class=" slds-p-around_medium" variant="base" label="Reports" onclick="{! c.toReports }"/>
+        
+        <lightning:buttonMenu class=" slds-p-around_medium" aura:id="menu" iconName="utility:settings" alternativeText="Settings menu" label="Settings" onselect="{! c.handleSelect }">
+            <lightning:menuItem label="Trainers" value="MenuItemOne" />
+            <lightning:menuItem label="Locations" value="MenuItemTwo" />
+            <lightning:menuItem label="Category" value="MenuItemThree" />        
+        </lightning:buttonMenu>
+    </div>
+    <!--<lightning:buttonMenu>
+        <lightning:menuItem class="slds-float_right slds-p-around_medium" href="https://sf-caliber-dev-ed.lightning.force.com/lightning/n/Quality_Audit" label="Quality Audit"/>
+    </lightning:buttonMenu>-->
+    
+</aura:component>

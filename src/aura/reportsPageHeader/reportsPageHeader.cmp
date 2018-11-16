@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ReportsController">
+    <aura:handler name="init" action="{!c.doInitYears}" value="{!this}"/>
+    <aura:registerEvent name="reportFilterChange" type="c:ReportFilterChange"/>
+    
+    <!-- values for chosen year and all years with batches -->
+    <aura:attribute name="allYears" type="Integer[]"/>
+    <aura:attribute name="yearLabel" type="Integer" default="2018"/>
+	<!-- values for chosen batch, all batches in a year, and their string representations -->
+    <aura:attribute name="allBatches" type="Training__c[]"/>
+    <aura:attribute name="currentBatch" type="Training__c"/>
+    <aura:attribute name="allBatchLabels" type="String[]"/>
+    <aura:attribute name="batchLabel" type="String" default="None"/>
+	<!-- values for chosen week and all weeks chosen batch has -->
+    <aura:attribute name="allWeekLabels" type="String[]"/>
+    <aura:attribute name="weekLabel" type="String" default="Week (All)"/>
+	<!-- values for all trainees in chosen batch and chosen trainee -->
+    <aura:attribute name="allTrainees" type="Contact[]"/>
+    <aura:attribute name="currentTrainee" type="Contact"/>
+    <aura:attribute name="currentTraineeName" type="String" default="Trainee"/>
+    <div>
+        <lightning:comboBox class="slds-size_1-of-8 selectBatchCombobox" aura:id="selectYear" name="yearBox" placeholder="{!v.yearLabel}" options="{! v.allYears }" onchange="{! c.updateYearLabel }"/>
+        <lightning:comboBox class="slds-size_3-of-8 selectBatchCombobox" aura:id="selectBatch" name="trainingBox" placeholder="{!v.batchLabel}" options="{! v.allBatchLabels }" onchange="{! c.updateBatchLabel }"/>    
+        <lightning:comboBox class="slds-size_2-of-8 selectBatchCombobox" aura:id="selectWeek" name="weekBox" placeholder="{!v.weekLabel}" options="{! v.allWeekLabels }" onchange="{! c.updateWeekLabel }"/>    
+        <lightning:comboBox class="slds-size_2-of-8 selectBatchCombobox" aura:id="selectTrainee" name="traineeBox" placeholder="{!v.currentTraineeName}" options="{! v.allTrainees }" onchange="{! c.updateTraineeLabel }"/>    
+    </div>
+</aura:component>

@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="CumulativeScoreApexCon">
+    <ltng:require
+                  styles="{!join(',',
+                          $Resource.ReportPanelCSS, 
+                          $Resource.bootstrapCSS)}"
+                  scripts="{!join(',',
+                           $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <aura:attribute name="traineeData" type="List"/>
+    <div class="wrapper">
+        <aura:iteration items="{!v.traineeData}" var="data">
+            <div class="list-group-item">
+                <div style="float: left"><span style="font-family:Futura-Std-Bold">{!data.name}</span></div>
+                <div style="float:right">{!data.grade}</div>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="ABController" >
+    <aura:attribute name="yearOptions" type="List"/>
+    <aura:attribute name="currentYear" type="String"/>
+    <aura:attribute name="trainingList" type="Training__c[]"/>
+    <aura:attribute name="currentTraining" type="Training__c" default='{"sObjectType":"Training__c",
+                                                                       "Id":"a0Df4000006ppw0EAA",
+                                                                       "Trainer__c": "005f40000044thhAAA",
+                                                                       "TrainingTrack__c":"a0Cf400000EnwUkEAJ",
+                                                                       "StartDate__c":"2018-04-05",
+                                                                       "Caliber_Number_of_Weeks__c":1}'/>
+    <aura:attribute name="trainingOptions" type="String[]"/>
+    <aura:attribute name="trainingValue" type="String" />
+    <aura:handler name="init" value="{!this }" action="{!c.init }"/>
+    <div class="row">
+        <lightning:combobox class="slds-size_1-of-8 selectBatchCombobox" aura:id="selectYear" value="{!v.currentYear}" placeholder="Year" options="{!v.yearOptions }" onchange="{! c.updateYearLabel }"/>
+        <lightning:combobox class="slds-size_1-of-4 selectBatchCombobox" aura:id="selectTraining" value="{!v.trainingValue}" placeholder="Trainer" options="{!v.trainingOptions }" onchange="{!c.updateTraining}"/>
+    </div>
+    {!v.body}
+    <!--<c:ColumnBtn  batchID='{!v.currentTraining.Id}'/>
+    <c:weekTabMenu batchID='{!v.currentTraining.Id}'/>-->
+    
+    
+</aura:component>

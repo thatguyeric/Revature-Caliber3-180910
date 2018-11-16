@@ -1,0 +1,25 @@
+.THIS.slds-button {
+    color: #F26925;
+    /* primary rev orange */
+    border-bottom: 1px solid #dedede;
+    border-radius: 0px;
+    margin-top: 8px;
+    font-family: 'Futura-Std-Bold';
+}
+
+.THIS {
+    float: right;
+    font-family: 'Futura-Std-Book';
+    font-size: 14px;
+}
+
+.THIS.slds-button:hover {
+    transition: ease-in-out 0.4s;
+    background-color: #dddbda;
+    color: #72A4C2;
+}
+
+.THIS .save {
+    background-color: #F26925;
+    color: white;
+}

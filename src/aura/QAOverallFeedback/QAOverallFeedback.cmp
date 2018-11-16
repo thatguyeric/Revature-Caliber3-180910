@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="QASummaryController" >
+    <ltng:require styles="/resource/fontAwesome/font-awesome-4.7.0/css/font-awesome.css"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <aura:attribute name="faceValue" type="Integer" />
+    <aura:attribute name="selectedFace" type="String" /> 
+    <aura:attribute name="trainingValue" type="String" default ="" />
+    <aura:attribute name="selectedWeek" type="Integer" default = "1" />
+    <aura:attribute name="smileyColor" type="String" default="fa fa-smile-o fa-2x"/>
+    <aura:attribute name="neutralColor" type="String" default="fa fa-meh-o fa-2x"/>
+    <aura:attribute name="sadyColor" type="String" default="fa fa-frown-o fa-2x"/>
+    <aura:attribute name="noteValue" type="String" />
+    <!-- My Attribute Section -->
+    
+    <aura:handler event="c:updateQCAverageEvent" action="{!c.recalculateQAAverage}"/>
+    
+    <div class="feedSection" >
+        <lightning:layout horizontalAlign="center"> 
+            <h2 class="header" >Overall Feedback</h2>
+        </lightning:layout> 
+        <br/>
+        <br/>
+        <div class="hoverSmiles"> 
+            <lightning:layout horizontalAlign="center">   
+                <div class="batchOverallButtonContainer">
+                    <button class="faceButton" onclick="{!c.smileClicked}">
+                        <i class="{!v.smileyColor}" />
+                    </button>
+                    <button class="faceButton" onclick="{!c.neutralClicked}">
+                        <i class="{!v.neutralColor}" />
+                    </button>
+                    <button class="faceButton" onclick="{!c.sadClicked}">
+                        <i class="{!v.sadyColor}" />
+                    </button>
+                </div>
+            </lightning:layout> 
+        </div>
+        
+        <!-- Test Function Button
+		<lightning:button variant="brand" label="Temp" onclick="{!c.recalculateQAAverage}"/>
+		-->
+
+        
+        <lightning:textarea name="Feed" value="{!v.noteValue}" style="width:100%" placeholder="Enter your overall feedback on the batch..." onblur="{!c.updateOverallTextbox}"/>
+        
+    </div>
+    
+    
+</aura:component>

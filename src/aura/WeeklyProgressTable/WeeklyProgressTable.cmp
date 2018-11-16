@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <ltng:require
+                  styles="{!join(',',$Resource.revStyling, $Resource.bootstrapCSS)}"
+                  scripts="{!join(',', 
+                           $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <aura:attribute name="weeklyData" type="List"/>
+    <div class="list-group container">
+        <aura:iteration items="{!v.weeklyData}" var="data">
+            <div class="list-group-item row">
+                <div class="col-sm-6 floatLeft"><span style="font-family:Futura-Std-Bold">Week {!data.week}</span></div>
+                <div class="col-sm-6 floatRight">{!data.grade}</div>
+            </div>
+        </aura:iteration>
+    </div>
+</aura:component>

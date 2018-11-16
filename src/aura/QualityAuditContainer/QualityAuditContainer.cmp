@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <!-- The fontAwesome folder needs to be added into the static resources. The following
+  line is what allows the component to access the smiley faces later on -->
+    <ltng:require styles="/resource/fontAwesome/font-awesome-4.7.0/css/font-awesome.css"/>    
+    
+    <aura:attribute name="currentYear" type="String"/>
+    <aura:attribute name="currentBatch" type="Training__c" />
+    <aura:attribute name="currentBatchID" type="String"/>
+    
+    <!-- This is just the master 'box' that contains all of the elements used by the QA Audit page -->
+    <div class="wrapper" style="width:100%">
+        <div class="row" scope="row" style="width:100%;">
+            <c:QAMenu currentBatch="{!v.currentBatch}" trainingValue="{!v.currentBatchID}"/>
+        </div>
+        <br/>
+        <div scope="row" style="width:100%;">
+            <c:WeekTab currentbatch="{!v.currentBatch}" currentBatchID="{!v.currentBatchID}"/>
+        </div>
+    </div>
+    
+</aura:component>

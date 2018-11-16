@@ -1,0 +1,24 @@
+<aura:component controller="batchTableController">
+    <ltng:require
+                  styles="{!join(',', $Resource.ReportPanelCSS, $Resource.bootstrapCSS)}"
+                  scripts="{!join(',', $Resource.jQuery, $Resource.bootstrapJS)}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name='associate' type='Contact' />
+    <aura:attribute name='note' type='Caliber_Note__c' />
+    <aura:attribute name='week' type='Integer' />
+    <aura:attribute name='grades' type='Caliber_Grade__c[]'/>
+    <aura:attribute name='handledRefresh' type='Integer' default='0' />
+    <aura:handler event='c:saveNotes' action='{!c.handleSave}'/>
+    <aura:handler event="c:DynComp" action="{!c.DynComp}"  />
+    
+    <td data-label="Trainee" scope="row" class="col-sm-2 col-md-2 col-lg-2">
+        <div class="slds-truncate" title="Name">{!v.associate.Name}</div>
+    </td>
+    {!v.body}
+    <td data-label="Notes" class="col trainee-cell note-cell">
+        <lightning:textArea title="Notes" aura:id="textarea" value="{!v.note.Note_Content__c}" 
+                                    placeholder="{!'Enter feedback for ' + v.associate.Name + '...'}" 
+                                    onblur="{!c.handleSave}" class="label-hidden"/> 
+            
+    </td>
+</aura:component>

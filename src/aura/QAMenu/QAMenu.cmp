@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="QAController" >
+    <aura:registerEvent name="callTheBatchIDEvent" type="c:updateBatchIDEvent" />
+    <!-- <aura:handler event="c:updateBatchIDEvent" action="{!c.updateTheBatchID}" /> -->
+    
+	<aura:attribute name="yearOptions" type="List"/>
+    <aura:attribute name="currentYear" type="String"/>
+    <aura:attribute name="trainingList" type="Training__c[]"/>
+    <aura:attribute name="currentBatch" type="Training__c" /> <!-- the current batch -->
+    <aura:attribute name="trainingOptions" type="String[]"/>
+    <aura:attribute name="trainingValue" type="String" /> <!-- id of the current batch -->
+    <aura:attribute name="quarterList" type="String[]" />
+    <aura:attribute name="currentQuarter" type="String" />
+    <aura:attribute name="locationList" type="String[]" />
+    <aura:attribute name="locationValue" type="String" />
+
+    <aura:handler name="init" value="{!this }" action="{!c.init }"/>
+
+    <div style="">
+        <lightning:combobox class="slds-size_1-of-8 selectBatchCombobox" aura:id="selectYear" value="{!v.currentYear}" placeholder="Year" options="{!v.yearOptions }" onchange="{! c.updateQuarterLabel }"/>
+        <lightning:combobox class="slds-size_1-of-8 selectBatchCombobox" aura:id="selectQuarter" value="{!v.currentQuarter}" placeholder="Quarter" options="{!v.quarterList}" onchange="{!c.updateLocationLabel}" />
+        <lightning:combobox class="slds-size_1-of-8 selectBatchCombobox" aura:id="selectLocation" value="{!v.locationValue}" placeholder="Location" options="{!v.locationList}" onchange="{!c.updateTrainingLabel}" />
+    	<lightning:combobox class="slds-size_3-of-8 selectBatchCombobox" aura:id="selectTraining" value="{!v.trainingValue}" placeholder="Trainer" options="{!v.trainingOptions }" onchange="{!c.updateTraining}"/>
+    </div>
+	
+</aura:component>
